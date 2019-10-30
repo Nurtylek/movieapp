@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "projects": {
+    "movieapp": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/movieapp",
+      "sourceRoot": "apps/movieapp/src",
+      "prefix": "movieapp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/movieapp",
+            "index": "apps/movieapp/src/index.html",
+            "main": "apps/movieapp/src/main.ts",
+            "polyfills": "apps/movieapp/src/polyfills.ts",
+            "tsConfig": "apps/movieapp/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/movieapp/src/favicon.ico",
+              "apps/movieapp/src/assets"
+            ],
+            "styles": ["apps/movieapp/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/movieapp/src/environments/environment.ts",
+                  "with": "apps/movieapp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "movieapp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "movieapp:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "movieapp:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/movieapp/tsconfig.app.json",
+              "apps/movieapp/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/movieapp/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/movieapp/jest.config.js",
+            "tsConfig": "apps/movieapp/tsconfig.spec.json",
+            "setupFile": "apps/movieapp/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "movieapp-e2e": {
+      "root": "apps/movieapp-e2e",
+      "sourceRoot": "apps/movieapp-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/movieapp-e2e/cypress.json",
+            "tsConfig": "apps/movieapp-e2e/tsconfig.e2e.json",
+            "devServerTarget": "movieapp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "movieapp:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/movieapp-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/movieapp-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "movieapp"
+}
