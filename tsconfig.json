@@ -15,7 +15,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@movieapp/backend": ["libs/backend/src/index.ts"],
+      "@movieapp/shared": ["libs/shared/src/index.ts"],
+      "@movieapp/core": ["libs/core/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

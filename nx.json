@@ -13,6 +13,15 @@
     },
     "movieapp": {
       "tags": []
+    },
+    "backend": {
+      "tags": []
+    },
+    "shared": {
+      "tags": []
+    },
+    "core": {
+      "tags": []
     }
   }
 }
