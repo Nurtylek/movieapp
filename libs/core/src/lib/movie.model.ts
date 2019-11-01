@@ -1,44 +1,31 @@
-//
-export class MovieRes {
-    results: MovieResponseModel[];
+export type GenreType = 'action' | 'adventure' | 'biography' | 'comedy' | 'crime'
+    | 'drama' | 'history' | 'mystery' | 'scifi' | 'sport' | 'thriller';
 
-    constructor(...models: Partial<MovieRes>[]) {
-        Object.assign(this, ...models);
+export const genreType = {
+    action: 'action' as GenreType,
+    adventure: 'adventure' as GenreType,
+    biography: 'biography' as GenreType,
+    comedy: 'comedy' as GenreType,
+    crime: 'crime' as GenreType,
+    drama: 'drama' as GenreType,
+    history: 'history' as GenreType,
+    mystery: 'mystery' as GenreType,
+    scifi: 'scifi' as GenreType,
+    sport: 'sport' as GenreType,
+    thriller: 'thriller' as GenreType
+};
 
-        if (this.results) {
-            this.results = this.results.map(r => new MovieResponseModel(r));
-        }
-    }
-}
-
-export class MovieResponseModel {
+export class Movie {
     id:          number;
     key:         string;
     name:        string;
     description: string;
-    genres:      string[];
+    genres:      GenreType[];
     rate:        string;
     length:      string;
     img:         string;
 
-    constructor(...models: Partial<MovieResponseModel>[]) {
+    constructor(...models: Partial<Movie>[]) {
         Object.assign(this, ...models);
     }
 }
-
-export type GenreType = 'action' | 'adventure' | 'biography' | 'comedy' | 'crime'
-    | 'drama' | 'history' | 'mystery' | 'scifi' | 'sport' | 'thriller';
-
-// export const genreType = {
-//     action: 'action' as GenreType,
-//     adventure: 'adventure' as GenreType,
-//     biography: 'biography' as GenreType,
-//     comedy: 'comedy' as GenreType,
-//     crime: 'crime' as GenreType,
-//     drama: 'drama' as GenreType,
-//     history: 'history' as GenreType,
-//     mystery: 'mystery' as GenreType,
-//     scifi: 'scifi' as GenreType,
-//     sport: 'sport' as GenreType,
-//     thriller: 'thriller' as GenreType
-// };

@@ -1,7 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { Abstract } from '../helpers/abstract';
-import { MovieResponseModel } from '@movieapp/core';
-import { filter } from 'rxjs/operators';
+import { GenreType, genreType, Movie } from '@movieapp/core';
 
 @Component({
     selector: 'movieapp-movie-list',
@@ -9,38 +8,25 @@ import { filter } from 'rxjs/operators';
     styleUrls: ['./movie-list.component.scss']
 })
 export class MovieListComponent extends Abstract implements OnInit {
-    movies: MovieResponseModel[] = [];
-    genres: string[] = [
-        "action",
-        "adventure",
-        "biography",
-        "comedy",
-        "crime",
-        "drama",
-        "history",
-        "mystery",
-        "scifi",
-        "sport",
-        "thriller"
-    ];
+
+    movies: Movie[] = [];
+    genreTypes = genreType;
+    genre: GenreType;
+
     constructor(injector: Injector) {super(injector) }
 
     ngOnInit() {
-        this.getMovies();
-    }
-
-    public getMovies() {
-        this.backend.moviesService.getMovies().subscribe(res => {
-            this.movies = res;
-        })
-    }
-
-
-    public getMovieWithSimilarGenre(genre: string) {
-        this.backend.moviesService.getMovies().subscribe(res => {
-
-            this.movies = res.filter(i => i.genres.some(el => el === genre))
-            console.log(this.movies);
+        this.route.queryParams.subscribe(params => {
+            this.genre = params['genre'];
+            this.getMovies(this.genre);
         });
+    }
+
+    // this method used to get movie list with filter in server
+    public getMovies(genre?: GenreType) {
+        this.backend.moviesService.getMovies(genre ? [genre] : []).subscribe(res => {
+            this.movies = res;
+            console.log(this.movies);
+        })
     }
 }

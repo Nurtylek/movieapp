@@ -1,6 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { Abstract } from '../helpers/abstract';
-import {  MovieResponseModel } from '@movieapp/core';
+import { Movie } from '@movieapp/core';
 import { filter, map } from 'rxjs/operators';
 
 @Component({
@@ -9,7 +9,8 @@ import { filter, map } from 'rxjs/operators';
     styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent extends Abstract implements OnInit {
-    movie: MovieResponseModel;
+    movie: Movie;
+    movies: Movie[];
     constructor(injector: Injector) {super(injector) }
 
     ngOnInit() {
@@ -19,12 +20,20 @@ export class MovieDetailComponent extends Abstract implements OnInit {
         ).subscribe(id => this.getMovie(id));
     }
 
-    public getMovie(id) {
-        this.backend.moviesService.getMovieById(id).subscribe((res: MovieResponseModel) => {
+    getMovie(id) {
+        this.backend.moviesService.getMovieById(id).subscribe((res: Movie) => {
             this.movie = res;
-            console.log(this.movie);
+            this.getTheSameGenreMovies();
         }, err => {
-            console.log(err);
+            console.error(err);
+        })
+    }
+
+    // movies with the same genres
+    getTheSameGenreMovies() {
+        this.backend.moviesService.getMovies(this.movie.genres).subscribe(res => {
+            this.movies = res;
+            console.log(res);
         })
     }
 

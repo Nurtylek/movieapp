@@ -5,11 +5,14 @@
     top: 0;
     width: 100vw;
     background-color: black;
-    z-index: 100;
+    z-index: 1000;
+
     .brand {
         color: white;
         margin-left: 2rem;
         font-weight: bold;
+        cursor: pointer;
+        outline: none;
     }
 
     hr {

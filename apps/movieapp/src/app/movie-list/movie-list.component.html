@@ -1,6 +1,9 @@
 <nav class="main-nav">
     <ul class="main-nav__items">
-        <li class="main-nav__item" *ngFor="let genre of genres" (click)="getMovieWithSimilarGenre(genre)">{{ genre }}</li>
+        <li class="main-nav__item"
+            *ngFor="let type of genreTypes | keyvalue"
+            [routerLink]="" [queryParams]="{genre: type.key}"
+            [class.active]="genre === type.key">{{type.key}}</li>
     </ul>
 </nav>
 

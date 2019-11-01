@@ -13,12 +13,18 @@
     }
 
     &__item {
-        background: white;
+        background-color: white;
         color: black;
         padding: 7px;
         border-radius: 7px;
         width: 120px;
-        text-align: center
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+
+        &.active {
+            background-color: lightgray;
+        }
     }
 
 }
@@ -32,6 +38,7 @@
 
     .movie-details {
         position: relative;
+        cursor: pointer;
 
         &__img {
             height: auto;
