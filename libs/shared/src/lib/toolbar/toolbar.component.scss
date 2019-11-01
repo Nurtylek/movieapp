@@ -1,0 +1,19 @@
+
+.wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    background-color: black;
+    z-index: 100;
+    .brand {
+        color: white;
+        margin-left: 2rem;
+        font-weight: bold;
+    }
+
+    hr {
+        width: 96vw;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,43 @@
+.container {
+    position: relative;
+
+    .movie__img {
+        width: 100vw;
+        height: 92vh;
+        margin-top: 3rem;
+        background-repeat: no-repeat;
+    }
+
+
+    .movie__cta {
+        display: inline-block;
+        vertical-align: middle;
+        position: absolute;
+        top: 800px;
+        left: 20px;
+        background-color: dodgerblue;
+        padding: 13px;
+        color: white;
+        text-align: center;
+        width: 300px;
+        border-radius: 7px;
+        font-weight: bold;
+        font-size: 20px;
+        border-color: inherit;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .movie__description {
+        display: inline-block;
+        vertical-align: middle;
+        position: absolute;
+        top: 800px;
+        left: 420px;
+        color: white;
+        font-weight: normal;
+        font-size: 16px;
+    }
+}

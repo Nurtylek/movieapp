@@ -1,0 +1,15 @@
+<nav class="main-nav">
+    <ul class="main-nav__items">
+        <li class="main-nav__item" *ngFor="let genre of genres" (click)="getMovieWithSimilarGenre(genre)">{{ genre }}</li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div *ngFor="let movie of movies">
+        <div class="movie-details">
+            <img class="movie-details__img" [src]="movie.img" [alt]="movie.name" routerLink="{{movie.id}}">
+            <p class="movie-details__name">{{movie.name}}</p>
+            <p class="movie-details__rate" >{{ movie.rate }}</p>
+        </div>
+    </div>
+</div>
