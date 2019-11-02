@@ -1,3 +1,7 @@
+<div class="search">
+    <input type="text" [(ngModel)]="searchItem" placeholder="Search for your favourite movie...">
+</div>
+
 <nav class="main-nav">
     <ul class="main-nav__items">
         <li class="main-nav__item"
@@ -11,10 +15,8 @@
     </ul>
 </nav>
 
-<!--<input placeholder="Type to search" [(ngModel)]="searchItem"/>-->
-
 <div class="container">
-    <div *ngFor="let movie of movies">
+    <div *ngFor="let movie of movies | search: searchItem">
         <div class="movie-details">
             <img class="movie-details__img" [src]="movie.img" [alt]="movie.name" routerLink="movie/{{movie.id}}">
             <p class="movie-details__name">{{movie.name}}</p>

@@ -8,16 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from '@movieapp/shared';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
-import { MovieSearchComponent } from './movie-search/movie-search.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
     declarations: [
         AppComponent,
         MovieListComponent,
-        MovieDetailComponent,
-        MovieSearchComponent
+        MovieDetailComponent
     ],
     imports: [
         BrowserModule,
