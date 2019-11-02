@@ -1,6 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { Abstract } from '../helpers/abstract';
 import { GenreType, genreType, Movie } from '@movieapp/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'movieapp-movie-list',
@@ -12,6 +13,8 @@ export class MovieListComponent extends Abstract implements OnInit {
     movies: Movie[] = [];
     genreTypes = genreType;
     genre: GenreType;
+
+    searchItem: string;
 
     constructor(injector: Injector) {super(injector) }
 

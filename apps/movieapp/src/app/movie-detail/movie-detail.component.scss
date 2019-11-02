@@ -1,43 +1,97 @@
+
 .container {
-    position: relative;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5px;
+    width: 70vw;
+    background: #f9f9f9;
+    border: 1px solid #f4f4f4;
+    padding: 10px;
+    box-shadow: 2px 2px 5px #ddd;
+    border-radius: 3px;
 
-    .movie__img {
-        width: 100vw;
-        height: 92vh;
-        margin-top: 3rem;
-        background-repeat: no-repeat;
-    }
+    .wrap {
+        display: flex;
+        align-items: center;
 
+        .movie-details__name {
+            width: 100%;
+            color: rgb(102, 57, 0);
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 20px;
+            margin-top: 1px;
+        }
 
-    .movie__cta {
-        display: inline-block;
-        vertical-align: middle;
-        position: absolute;
-        top: 800px;
-        left: 20px;
-        background-color: dodgerblue;
-        padding: 13px;
-        color: white;
-        text-align: center;
-        width: 300px;
-        border-radius: 7px;
-        font-weight: bold;
-        font-size: 20px;
-        border-color: inherit;
-
-        &:focus {
-            outline: none;
+        .movie-details__rate {
+            margin-left: 430px
         }
     }
 
-    .movie__description {
-        display: inline-block;
-        vertical-align: middle;
-        position: absolute;
-        top: 800px;
-        left: 420px;
-        color: white;
-        font-weight: normal;
-        font-size: 16px;
+    strong {
+        color: rgb(102, 57, 0);
+    }
+
+    .movie-details__len {
+        margin-left: 20px;
+    }
+
+    .movie-details__desc {
+        margin-left: 20px;
+    }
+}
+
+
+button {
+    background: white;
+    border: 1px solid #ececec;
+    padding: 5px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-left: 250px;
+
+    &:hover {
+        background: #211807;
+        color: #fff;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+
+
+h2 {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}
+
+
+.wrapper {
+    width: 70vw;
+    margin: 0 auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .movie-details {
+        position: relative;
+        cursor: pointer;
+
+        &__img {
+            height: auto;
+            width: 100%;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            border: 1px solid #ececec;
+
+            &:active {
+                outline: none;
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@ import { SharedModule } from '@movieapp/shared';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
         BrowserModule,
         AppRoutingModule,
         BackendModule.forRoot({apiUrl: environment.apiUrl}),
-        SharedModule
+        SharedModule,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

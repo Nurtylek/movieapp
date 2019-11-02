@@ -1,11 +1,13 @@
 .main-nav {
-    width: 96vw;
+    width: 70vw;
     margin: 0 auto;
     margin-top: 100px;
+    display: block;
 
     &__items {
         display: flex;
-        justify-content: space-around;
+        flex-wrap: wrap;
+        justify-content: space-between;
         color: white;
         margin: 0;
         padding: 0;
@@ -13,29 +15,49 @@
     }
 
     &__item {
-        background-color: white;
-        color: black;
-        padding: 7px;
-        border-radius: 7px;
-        width: 120px;
+        background-color: #241e20;
         text-align: center;
         cursor: pointer;
         outline: none;
+        width: 32.3%;
+        margin-bottom: 30px;
+        margin-right: 2px;
+        border: 2px solid #030302;
+        border-radius: 5px;
+        -webkit-box-shadow: 13px 9px 20px -3px rgba(104,96,96,0.76);
+        box-shadow: 13px 9px 20px -3px rgba(104,96,96,0.76);
 
         &.active {
-            background-color: lightgray;
+            background-color: #5a4940;
+        }
+
+        &:hover {
+            background: #5a4940;
         }
     }
+
+    .nav-link {
+        display: inline-block;
+        padding: 30px;
+        margin: 0 15px;
+        color: rgb(185, 171, 152);
+        font-size: 25px;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+
+    }
+
 
 }
 
 .container {
-    width: 96vw;
+    width: 70vw;
     margin: 2rem auto 0;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-
+    justify-content: space-between;
     .movie-details {
         position: relative;
         cursor: pointer;

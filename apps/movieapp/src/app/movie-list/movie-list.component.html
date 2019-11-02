@@ -3,14 +3,20 @@
         <li class="main-nav__item"
             *ngFor="let type of genreTypes | keyvalue"
             [routerLink]="" [queryParams]="{genre: type.key}"
-            [class.active]="genre === type.key">{{type.key}}</li>
+            [class.active]="genre === type.key">
+            <a class="nav-link">
+                <span>{{type.key}}</span>
+            </a>
+        </li>
     </ul>
 </nav>
+
+<!--<input placeholder="Type to search" [(ngModel)]="searchItem"/>-->
 
 <div class="container">
     <div *ngFor="let movie of movies">
         <div class="movie-details">
-            <img class="movie-details__img" [src]="movie.img" [alt]="movie.name" routerLink="{{movie.id}}">
+            <img class="movie-details__img" [src]="movie.img" [alt]="movie.name" routerLink="movie/{{movie.id}}">
             <p class="movie-details__name">{{movie.name}}</p>
             <p class="movie-details__rate" >{{ movie.rate }}</p>
         </div>
